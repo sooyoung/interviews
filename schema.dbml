@@ -1,0 +1,39 @@
+//// -- LEVEL 1
+//// -- Schemas, Tables and References
+
+// Creating tables
+// You can define the tables with full schema names
+
+
+// If schema name is omitted, it will default to "public" schema.
+Table interviews.employees as U {
+  id int [pk, increment] // auto-increment
+  full_name varchar
+  created_at timestamp
+  country_code int
+}
+
+Table interviews.countries as C {
+  code int [pk]
+  name varchar
+ }
+
+ Table interviews.teams as T {
+  id int [pk, increment]
+  name varchar
+  owner_id int
+  created_at timestamp
+ }
+
+Table interviews.team_members as TM {
+  id int [pk, increment]
+  team_id int
+  user_id int
+}
+// Creating references
+// You can also define relaionship separately
+// > many-to-one; < one-to-many; - one-to-one; <> many-to-many
+Ref: U.country_code > C.code  
+Ref: T.owner_id > U.id
+Ref: T.id < TM.team_id
+Ref: TM.user_id > U.id
