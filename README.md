@@ -18,3 +18,7 @@ create trigger on_auth_user_created
 after insert on auth.users
 for each row execute function handle_new_user();
 ```
+
+4. Create mock data to insert data into all four tables using ChatGPT or Mockaroo.com
+
+   
