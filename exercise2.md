@@ -4,16 +4,16 @@ Now we will implement row-level security (RLS) and role-based access control (RB
 
 ROLES
 
-- superadmin_role
-- admin_role
-- regular_role
-- Note: anonymous users cannot access any tables (select, insert, update, delete are all forbidden)
+- super_admin
+- admin
+- regular
 
 POLICIES
 
-- TBD
-- 
-
+- update, insert, select, delete on all tables + rows for super_admin role
+- update, insert, select on all tables + rows for admin role
+- update on Employees table where employee id = authenticated user for regular role
+- anonymous users cannot access any tables
 
 
 References
