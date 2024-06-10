@@ -12,7 +12,8 @@ POLICIES
 
 - update, insert, select, delete on all tables + rows for super_admin role
 - update, insert, select on all tables + rows for admin role
-- update on Employees table where employee id = authenticated user for regular role
+- update columns country_code, full_name on Employees table only where employee id = authenticated user for regular role
+- select on all tables + rows for regular role
 - anonymous users cannot access any tables
 
 
